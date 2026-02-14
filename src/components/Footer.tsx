@@ -1,8 +1,18 @@
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
+  const footerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+
   return (
-    <footer id="footer" className="bg-black pb-12 pt-16 min-h-[110vh]">
+    <footer id="footer" ref={footerRef} className="bg-black pb-12 pt-16 min-h-[110vh] overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <div className="w-full h-px bg-white/10 mb-24 md:mb-32" />
       </div>
@@ -11,9 +21,12 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col gap-12">
           {/* Giant Logo */}
           <div className="flex justify-center">
-            <span className="text-[12vw] font-display font-black leading-none tracking-tighter text-white/5 block">
+            <motion.span 
+              style={{ y }}
+              className="text-[12vw] font-display font-black leading-none tracking-tighter text-white/5 block"
+            >
               VIVIDSENSE
-            </span>
+            </motion.span>
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">

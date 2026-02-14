@@ -130,11 +130,11 @@ export const Navbar: React.FC = () => {
 
             <div className="flex flex-col gap-6 relative z-10">
               {[
-                { label: 'Our Mission', href: '#vision' },
+                { label: 'Mission', href: '#vision' },
                 { label: 'Products', href: '#technology' },
                 { label: 'Updates', href: '#stories' },
-                { label: 'Join the Team', href: '#join' },
-                { label: 'Contact Us', href: '#footer' }
+                { label: 'Careers', href: '#join' },
+                { label: 'Contact', href: '#footer' }
               ].map((item, i) => (
                 <motion.a
                   key={item.label}

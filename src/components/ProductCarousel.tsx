@@ -15,12 +15,12 @@ const products: Product[] = [
   {
     id: "001",
     title: "The Surrounding Scanner",
-    subtitle: "Wearable AI Vision System",
-    description: "A wearable system with a forward-facing camera and on-board AI that detects obstacles and provides real-time alerts.",
+    subtitle: "Wearable Vision System",
+    description: "A wearable system with a forward-facing sensor that detects obstacles and provides real-time alerts.",
     price: "Starting at $79",
     features: [
-      "Front-facing AI camera for obstacle detection and object recognition",
-      "Real-time spoken alerts delivered to a discreet earpiece",
+      "Front-facing sensor for obstacle detection and object recognition",
+      "Real-time alerts delivered to a discreet earpiece",
       "Customizable lens options",
       "Optional vibration feedback & Bluetooth connectivity"
     ]
@@ -32,7 +32,7 @@ const products: Product[] = [
     description: "An affordable prosthetic arm designed to restore essential arm and hand functionality for everyday tasks.",
     price: "Starting at $1000",
     features: [
-      "Modular prosthetic arm with interchangeable grip attachments",
+      "Modular prosthetic arm build with accessible parts",
       "Lightweight, durable frame for daily use",
       "Intuitive control system optimized for reliability",
       "Designed for accessibility and long-term affordability"

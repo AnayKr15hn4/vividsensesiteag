@@ -79,7 +79,7 @@ export const Footer: React.FC = () => {
                   <MapPin className="w-5 h-5 mt-1 shrink-0" />
                   <div className="flex flex-col">
                     <span className="text-base">East Meadow Estates</span>
-                    <span className="text-base">Kendal Park, NJ 08824</span>
+                    <span className="text-base">Kendall Park, NJ 08824</span>
                   </div>
                 </div>
 

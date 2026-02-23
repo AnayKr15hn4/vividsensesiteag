@@ -65,7 +65,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex flex-col gap-4">
                 <span className="text-white/20">Founders</span>
-                <div className="flex flex-wrap gap-x-8 gap-y-4">
+                <div className="flex flex-col gap-2">
                   <a
                     href="https://www.linkedin.com/in/anay-krishna-b39183359/"
                     target="_blank"
@@ -81,6 +81,19 @@ export const Footer: React.FC = () => {
                     className="hover:text-white transition-colors tracking-widest whitespace-nowrap"
                   >
                     Eshaan Revankar
+                  </a>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4">
+                <span className="text-white/20">Associates</span>
+                <div className="flex flex-col gap-2">
+                  <a
+                    href="https://www.linkedin.com/in/advay-pingle-0561833a2/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors tracking-widest whitespace-nowrap"
+                  >
+                    Advay Pingle
                   </a>
                 </div>
               </div>

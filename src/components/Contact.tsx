@@ -165,9 +165,8 @@ export const Contact: React.FC = () => {
                   <option value="engineer">Software Engineer</option>
                   <option value="designer">Product Designer</option>
                   <option value="hardware">Hardware Engineer</option>
-                  <option value="marketing">Marketing Specialist</option>
-                  <option value="sales">Sales Representative</option>
-                  <option value="support">Customer Support</option>
+                  <option value="media">Media Specialist</option>
+                  <option value="outreach">Outreach Specialist</option>
                   <option value="other">Other</option>
                 </select>
               </motion.div>
@@ -196,7 +195,7 @@ export const Contact: React.FC = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Why do you want to join VIVIDSENSE?*&#10;Tell us about your passion for accessibility and how you'd contribute to our mission..."
+                  placeholder="Why do you want to join VIVIDSENSE?*&#10;Tell us about your experience in your field, tools you are proficient with, and your passion for accessibility and how you'd contribute to our mission. Feel free to include any additional information you believe strengthens your application..."
                   required
                   rows={6}
                   className="w-full bg-transparent border-b border-black/20 py-3 text-base text-black placeholder-black/40 focus:outline-none focus:border-black transition-colors resize-none"

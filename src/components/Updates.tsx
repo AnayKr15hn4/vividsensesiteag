@@ -5,17 +5,17 @@ import { ArrowRight, Target, Shield } from 'lucide-react';
 const updates = [
   {
     id: "001",
-    date: "December 2025",
+    date: "February 2026",
     label: "Dexarm V2",
     description: "The Dexarm version 2 is in progress. Featuring improved grip strength, lighter materials, and enhanced sensor feedback for more natural movement.",
     stat: "V2"
   },
   {
     id: "002",
-    date: "September 2025",
-    label: "The SS V3",
-    description: "The surrounding scanner is getting a makeover. Upgraded spatial mapping, longer battery life, and a sleeker form factor for everyday wear.",
-    stat: "V3"
+    date: "March 2026",
+    label: "Hiring New Positions",
+    description: "Vividsense is now hiring two new positions. We are hiring a Media Manager and a Outreach Manager",
+    stat: "2"
   },
   {
     id: "003",

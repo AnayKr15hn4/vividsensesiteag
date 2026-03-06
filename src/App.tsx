@@ -12,7 +12,7 @@ import { ApplyPage } from "./pages/ApplyPage";
 
 function App() {
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router>
       <ScrollToTop />
       <Layout>
         <Navbar />

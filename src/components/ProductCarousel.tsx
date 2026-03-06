@@ -48,7 +48,7 @@ const revealVariants = {
   visible: {
     y: "0%",
     opacity: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as any },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -60,7 +60,7 @@ const fadeUpVariants = {
     transition: {
       delay: 0.3 + i * 0.15,
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as any,
+      ease: [0.22, 1, 0.36, 1],
     },
   }),
 };

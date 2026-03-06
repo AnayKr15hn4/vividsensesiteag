@@ -39,7 +39,7 @@ export const ApplyPage: React.FC = () => {
           message: "",
         });
       }
-    } catch (error) {
+    } catch (_error) {
       alert("There was an error submitting the form. Please try again.");
     }
   };

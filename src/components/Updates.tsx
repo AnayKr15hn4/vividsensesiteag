@@ -42,7 +42,7 @@ const cardVariants = {
     transition: {
       delay: 0.6 + i * 0.2,
       duration: 0.8,
-      ease: [0.22, 1, 0.36, 1] as any,
+      ease: [0.22, 1, 0.36, 1],
     },
   }),
 };
@@ -52,7 +52,7 @@ const revealVariants = {
   visible: {
     y: "0%",
     opacity: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as any },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
 };
 

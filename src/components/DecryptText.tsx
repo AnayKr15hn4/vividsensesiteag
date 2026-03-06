@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface DecryptTextProps {
   text: string;
@@ -7,17 +7,17 @@ interface DecryptTextProps {
   className?: string;
 }
 
-export const DecryptText: React.FC<DecryptTextProps> = ({ 
-  text, 
-  speed = 40, 
-  delay = 0, 
-  className = "" 
+export const DecryptText: React.FC<DecryptTextProps> = ({
+  text,
+  speed = 40,
+  delay = 0,
+  className = "",
 }) => {
   const [displayText, setDisplayText] = useState("");
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
     let iteration = 0;
 
     const startDecrypt = () => {
@@ -31,7 +31,7 @@ export const DecryptText: React.FC<DecryptTextProps> = ({
               }
               return chars[Math.floor(Math.random() * chars.length)];
             })
-            .join("")
+            .join(""),
         );
 
         if (iteration >= text.length) {
@@ -42,7 +42,7 @@ export const DecryptText: React.FC<DecryptTextProps> = ({
       }, speed);
     };
 
-    timeout = setTimeout(startDecrypt, delay);
+    const timeout = setTimeout(startDecrypt, delay);
 
     return () => {
       clearTimeout(timeout);

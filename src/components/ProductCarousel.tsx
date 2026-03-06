@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence, useInView, Variants } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -43,7 +43,7 @@ const products: Product[] = [
   },
 ];
 
-const revealVariants = {
+const revealVariants: Variants = {
   hidden: { y: "120%", opacity: 0 },
   visible: {
     y: "0%",
@@ -52,7 +52,7 @@ const revealVariants = {
   },
 };
 
-const fadeUpVariants = {
+const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,

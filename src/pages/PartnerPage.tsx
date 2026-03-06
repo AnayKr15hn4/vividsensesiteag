@@ -45,7 +45,7 @@ export const PartnerPage: React.FC = () => {
         setStatus("error");
         alert("There was an error submitting your request. Please try again.");
       }
-    } catch (_error) {
+    } catch {
       setStatus("error");
       alert("There was an error submitting your request. Please try again.");
     }

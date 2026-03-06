@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 export const Contact: React.FC = () => {
@@ -39,7 +39,7 @@ export const Contact: React.FC = () => {
           message: "",
         });
       }
-    } catch (_error) {
+    } catch {
       alert("There was an error submitting the form. Please try again.");
     }
   };
@@ -55,7 +55,7 @@ export const Contact: React.FC = () => {
     });
   };
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -66,7 +66,7 @@ export const Contact: React.FC = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -75,7 +75,7 @@ export const Contact: React.FC = () => {
     },
   };
 
-  const titleVariants = {
+  const titleVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,

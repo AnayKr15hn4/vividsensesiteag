@@ -1,0 +1,12 @@
+﻿
+C:\projects\Programming\vividsensesiteag\src\components\Contact.tsx
+  42:14  error  '_error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\projects\Programming\vividsensesiteag\src\pages\ApplyPage.tsx
+  42:14  error  '_error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\projects\Programming\vividsensesiteag\src\pages\PartnerPage.tsx
+  48:14  error  '_error' is defined but never used  @typescript-eslint/no-unused-vars
+
+Γ£û 3 problems (3 errors, 0 warnings)
+

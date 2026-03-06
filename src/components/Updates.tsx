@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { ArrowRight, Target, Shield } from "lucide-react";
 
 const updates = [
@@ -34,7 +34,7 @@ const comingSoonItems = [
   { text: "Advanced weather protection", icon: Shield },
 ];
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
@@ -47,7 +47,7 @@ const cardVariants = {
   }),
 };
 
-const revealVariants = {
+const revealVariants: Variants = {
   hidden: { y: "120%", opacity: 0 },
   visible: {
     y: "0%",

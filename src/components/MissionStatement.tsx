@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 
 export const MissionStatement: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,7 +54,7 @@ export const MissionStatement: React.FC = () => {
     "equipment.",
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -63,7 +63,7 @@ export const MissionStatement: React.FC = () => {
     },
   };
 
-  const wordVariants = {
+  const wordVariants: Variants = {
     hidden: {
       y: "120%",
       transition: { duration: 0.4 },

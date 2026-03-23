@@ -15,19 +15,25 @@ export const Footer: React.FC = () => {
     <footer
       id="footer"
       ref={footerRef}
-      className="bg-[#0c0c0c] pb-12 pt-16 min-h-[110vh] overflow-hidden"
+      className="relative bg-[#111111] pb-12 pt-16 min-h-[110vh] overflow-hidden"
     >
-      <div className="container mx-auto px-6 md:px-12">
+      {/* Noise Texture Background */}
+      <div 
+        className="absolute inset-0 z-0 opacity-20 pointer-events-none mix-blend-overlay"
+        style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }}
+      ></div>
+
+      <div className="container relative z-10 mx-auto px-6 md:px-12">
         <div className="w-full h-px bg-white/10 mb-24 md:mb-32" />
       </div>
 
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container relative z-10 mx-auto px-6 md:px-12">
         <div className="flex flex-col gap-12">
           {/* Giant Logo */}
           <div className="flex justify-center">
             <motion.span
               style={{ y }}
-              className="text-[12vw] font-display font-black leading-none tracking-tighter text-white/5 block"
+              className="text-[12vw] font-display font-black leading-none tracking-tighter text-[#1a1a1a] block"
             >
               VIVIDSENSE
             </motion.span>

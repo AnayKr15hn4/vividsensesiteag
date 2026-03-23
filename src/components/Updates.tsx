@@ -123,7 +123,7 @@ export const Updates: React.FC = () => {
               variants={cardVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="group bg-[#0c0c0c] rounded-sm flex flex-col justify-between min-h-[420px] md:min-h-[480px] overflow-hidden"
+              className="group bg-[#111111] rounded-sm flex flex-col justify-between min-h-[420px] md:min-h-[480px] overflow-hidden"
             >
               {/* Top — context area */}
               <div className="p-6 md:p-8 flex-1">
@@ -169,7 +169,7 @@ export const Updates: React.FC = () => {
           variants={cardVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="bg-[#0c0c0c] rounded-sm p-8 md:p-10"
+          className="bg-[#111111] rounded-sm p-8 md:p-10"
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-display font-medium text-white mb-2">

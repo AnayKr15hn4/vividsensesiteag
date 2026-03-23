@@ -13,6 +13,7 @@ export const Contact: React.FC = () => {
     position: "",
     experience: "",
     message: "",
+    socials: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -37,6 +38,7 @@ export const Contact: React.FC = () => {
           position: "",
           experience: "",
           message: "",
+          socials: "",
         });
       }
     } catch {
@@ -203,13 +205,25 @@ export const Contact: React.FC = () => {
                 </select>
               </motion.div>
 
+              {/* Social Media (Optional) */}
+              <motion.div variants={itemVariants}>
+                <input
+                  type="text"
+                  name="socials"
+                  value={formData.socials}
+                  onChange={handleChange}
+                  placeholder="Social Media Usernames (Optional, separate with commas, e.g. LinkedIn, Twitter)"
+                  className="w-full bg-transparent border-b border-black/20 py-3 text-base text-black placeholder-black/40 focus:outline-none focus:border-black transition-colors"
+                />
+              </motion.div>
+
               {/* Why do you want to join VIVIDSENSE? */}
               <motion.div variants={itemVariants}>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Why do you want to join VIVIDSENSE?*&#10;Tell us about your experience in your field, tools you are proficient with, and your passion for accessibility and how you'd contribute to our mission. Feel free to include any additional information you believe strengthens your application..."
+                  placeholder="Why do you want to join VIVIDSENSE?*&#10;Tell us about your experience, tools you're proficient with, and your passion for accessibility and how you'd contribute to our mission. Feel free to include anything else that strengthens your application..."
                   required
                   rows={6}
                   className="w-full bg-transparent border-b border-black/20 py-3 text-base text-black placeholder-black/40 focus:outline-none focus:border-black transition-colors resize-none"

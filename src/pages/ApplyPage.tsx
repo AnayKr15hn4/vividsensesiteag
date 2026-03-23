@@ -13,6 +13,7 @@ export const ApplyPage: React.FC = () => {
     position: "",
     experience: "",
     message: "",
+    socials: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -37,6 +38,7 @@ export const ApplyPage: React.FC = () => {
           position: "",
           experience: "",
           message: "",
+          socials: "",
         });
       }
     } catch {
@@ -224,6 +226,21 @@ export const ApplyPage: React.FC = () => {
                     />
                   </svg>
                 </div>
+              </div>
+
+              {/* Social Media (Optional) */}
+              <div className="space-y-4">
+                <label className="text-[10px] font-bold tracking-[0.3em] uppercase text-black/30">
+                  Social Media Usernames (Optional)
+                </label>
+                <input
+                  type="text"
+                  name="socials"
+                  value={formData.socials}
+                  onChange={handleChange}
+                  placeholder="e.g. LinkedIn, Twitter (separate with commas)"
+                  className="w-full bg-transparent border-b border-black/10 py-2 text-lg font-light focus:outline-none focus:border-black transition-colors"
+                />
               </div>
 
               {/* Question */}

@@ -18,9 +18,12 @@ export const Footer: React.FC = () => {
       className="relative bg-[#111111] pb-12 pt-16 min-h-[110vh] overflow-hidden"
     >
       {/* Noise Texture Background */}
-      <div 
-        className="absolute inset-0 z-0 opacity-20 pointer-events-none mix-blend-overlay"
-        style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }}
+      <div
+        className="absolute inset-0 z-0 opacity-5 pointer-events-none"
+        style={{
+          backgroundImage: 'url("/noise.svg")',
+          backgroundRepeat: "repeat",
+        }}
       ></div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
@@ -33,7 +36,7 @@ export const Footer: React.FC = () => {
           <div className="flex justify-center">
             <motion.span
               style={{ y }}
-              className="text-[12vw] font-display font-black leading-none tracking-tighter text-[#1a1a1a] block"
+              className="text-[12vw] font-display font-black leading-none tracking-tighter text-[#2a2a2a] block"
             >
               VIVIDSENSE
             </motion.span>

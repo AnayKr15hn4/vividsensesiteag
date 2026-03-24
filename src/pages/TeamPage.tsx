@@ -39,13 +39,19 @@ const employees = [
     name: "Wasim Vorvoi",
     role: "AI Engineer",
     linkedin: "https://www.linkedin.com/feed/",
-    mail: "wasim@example.com",
+    mail: "wasimvorvoi@gmail.com",
   },
   {
     name: "Vishwesh Hariprasad",
     role: "Software Engineer",
     linkedin: "linkedin.com/in/vishwesh-hariprasad-50aa6b342",
     mail: "vhariprasa@gmail.com",
+  },
+  {
+    name: "Sreenivas Neelanarayanan",
+    role: "Outreach Manager",
+    linkedin: "https://www.linkedin.com/in/sreenivas-neelanarayanan-970b0b354/",
+    mail: "nareeni2010@gmail.com",
   },
 ];
 

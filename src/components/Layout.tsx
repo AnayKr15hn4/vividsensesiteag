@@ -42,7 +42,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           {children}
         </motion.main>
       </AnimatePresence>
-      <div className="noise-bg pointer-events-none" />
     </div>
   );
 };

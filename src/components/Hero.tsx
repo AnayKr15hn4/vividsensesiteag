@@ -9,6 +9,12 @@ export const Hero: React.FC = () => {
       id="hero"
       className="relative h-screen w-full bg-brand-dark flex flex-col justify-end overflow-hidden"
     >
+      {/* Noise Texture Background */}
+      <div 
+        className="absolute inset-0 z-0 opacity-5 pointer-events-none"
+        style={{ backgroundImage: 'url("/noise.svg")', backgroundRepeat: 'repeat' }}
+      ></div>
+
       {/* Background Texture & Mesh */}
       <div className="absolute inset-0 z-0">
         <div

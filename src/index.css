@@ -53,11 +53,11 @@
     bottom: -50%;
     width: 200%;
     height: 200%;
-    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-    opacity: 0.12;
+    background-image: url("/noise.svg");
+    opacity: 0.02;
     z-index: 9999;
     pointer-events: none;
-    animation: noise 0.2s infinite;
+    /* animation: noise 0.2s infinite; removed to stop moving */
   }
 
   @keyframes noise {

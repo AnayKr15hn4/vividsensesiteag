@@ -1,6 +1,11 @@
 export const ScannerFooter = () => {
   return (
     <footer className="footer bg-white text-black py-12 border-t border-[#00ced1]/50 relative overflow-hidden">
+      {/* Noise Texture Background */}
+      <div 
+        className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none mix-blend-multiply"
+        style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }}
+      ></div>
       {/* Subtle top glow from the border */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#00ced1]/50 to-transparent" />
       <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#00ced1]/10 to-transparent pointer-events-none" />

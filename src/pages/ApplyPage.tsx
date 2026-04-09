@@ -10,11 +10,22 @@ export const ApplyPage: React.FC = () => {
     firstName: "",
     lastName: "",
     email: "",
-    position: "",
+    department: "",
+    interests: [] as string[],
+    otherInterest: "",
     experience: "",
     message: "",
     socials: "",
   });
+
+  const handleInterestToggle = (interest: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      interests: prev.interests.includes(interest)
+        ? prev.interests.filter((i) => i !== interest)
+        : [...prev.interests, interest],
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,7 +46,9 @@ export const ApplyPage: React.FC = () => {
           firstName: "",
           lastName: "",
           email: "",
-          position: "",
+          department: "",
+          interests: [],
+          otherInterest: "",
           experience: "",
           message: "",
           socials: "",
@@ -156,24 +169,22 @@ export const ApplyPage: React.FC = () => {
                 />
               </div>
 
-              {/* Position of Interest */}
+              {/* Department of Interest */}
               <div className="space-y-4 relative">
                 <label className="text-[10px] font-bold tracking-[0.3em] uppercase text-black/30">
-                  Position of Interest*
+                  Department of Interest*
                 </label>
                 <select
-                  name="position"
-                  value={formData.position}
+                  name="department"
+                  value={formData.department}
                   onChange={handleChange}
                   required
                   className="w-full bg-transparent border-b border-black/10 py-2 text-lg font-light focus:outline-none focus:border-black transition-colors appearance-none cursor-pointer"
                 >
-                  <option value="" disabled selected></option>
-                  <option value="engineer">Software Engineer</option>
-                  <option value="designer">Product Designer</option>
-                  <option value="hardware">Hardware Engineer</option>
-                  <option value="media">Media Specialist</option>
-                  <option value="outreach">Outreach Specialist</option>
+                  <option value="" disabled></option>
+                  <option value="marketing">Marketing</option>
+                  <option value="content_creation">Content Creation</option>
+                  <option value="outreach">Outreach</option>
                 </select>
                 <div className="absolute right-0 bottom-3 pointer-events-none">
                   <svg
@@ -190,6 +201,52 @@ export const ApplyPage: React.FC = () => {
                     />
                   </svg>
                 </div>
+              </div>
+
+              {/* Interests */}
+              <div className="space-y-4 relative">
+                <label className="text-[10px] font-bold tracking-[0.3em] uppercase text-black/30">
+                  Interests*
+                </label>
+                <div className="flex flex-wrap gap-3">
+                  {["CAD", "Programming", "AI", "Engineering", "Designing", "Finance", "Others"].map((interest) => {
+                    const isSelected = formData.interests.includes(interest);
+                    return (
+                      <button
+                        type="button"
+                        key={interest}
+                        onClick={() => handleInterestToggle(interest)}
+                        className={`px-4 py-2 text-sm border rounded-full transition-colors ${
+                          isSelected
+                            ? "border-black bg-black text-white"
+                            : "border-black/20 text-black/60 hover:border-black/50"
+                        }`}
+                      >
+                        {interest}
+                      </button>
+                    );
+                  })}
+                </div>
+                {/* Hidden input to pass data to Formspree */}
+                <input type="hidden" name="interests" value={formData.interests.join(", ")} />
+
+                {/* Other Interest Input */}
+                {formData.interests.includes("Others") && (
+                  <div className="pt-2 space-y-2">
+                    <label className="text-[10px] font-bold tracking-[0.3em] uppercase text-black/30">
+                      Please Specify Other Interests*
+                    </label>
+                    <input
+                      type="text"
+                      name="otherInterest"
+                      value={formData.otherInterest}
+                      onChange={handleChange}
+                      placeholder="e.g. Data Science, Robotics"
+                      required
+                      className="w-full bg-transparent border-b border-black/10 py-2 text-lg font-light focus:outline-none focus:border-black transition-colors"
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Years of Experience */}

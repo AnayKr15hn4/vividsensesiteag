@@ -182,9 +182,11 @@ export const ApplyPage: React.FC = () => {
                   className="w-full bg-transparent border-b border-black/10 py-2 text-lg font-light focus:outline-none focus:border-black transition-colors appearance-none cursor-pointer"
                 >
                   <option value="" disabled></option>
+                  <option value="engineer">Engineer</option>
                   <option value="marketing">Marketing</option>
                   <option value="content_creation">Content Creation</option>
                   <option value="outreach">Outreach</option>
+                  <option value="other">Other [Please Specify Below]</option>
                 </select>
                 <div className="absolute right-0 bottom-3 pointer-events-none">
                   <svg
@@ -209,7 +211,15 @@ export const ApplyPage: React.FC = () => {
                   Interests*
                 </label>
                 <div className="flex flex-wrap gap-3">
-                  {["CAD", "Programming", "AI", "Engineering", "Designing", "Finance", "Others"].map((interest) => {
+                  {[
+                    "CAD",
+                    "Programming",
+                    "AI",
+                    "Engineering",
+                    "Designing",
+                    "Finance",
+                    "Others",
+                  ].map((interest) => {
                     const isSelected = formData.interests.includes(interest);
                     return (
                       <button
@@ -228,7 +238,11 @@ export const ApplyPage: React.FC = () => {
                   })}
                 </div>
                 {/* Hidden input to pass data to Formspree */}
-                <input type="hidden" name="interests" value={formData.interests.join(", ")} />
+                <input
+                  type="hidden"
+                  name="interests"
+                  value={formData.interests.join(", ")}
+                />
 
                 {/* Other Interest Input */}
                 {formData.interests.includes("Others") && (

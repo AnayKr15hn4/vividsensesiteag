@@ -8,16 +8,16 @@ const updates = [
     date: "March 2026",
     label: "Hiring New Positions",
     description:
-      "Vividsense is now hiring 1 new position and 1 new department. We are hiring a Media department and a Product Designer.",
-    stat: "New",
+      "Vividsense is now hiring 3 new departments. We are hiring a Content Creation department, a Marketing department and an Outreach department. Visit our apply page to learn more!",
+    stat: "3",
   },
   {
     id: "002",
-    date: "May 2025",
-    label: "Community Milestone",
+    date: "April 2026",
+    label: "SB Launch Win",
     description:
-      "Placed 2nd out of 42 teams in our schools SB Launch (still chasing the top spot). A huge step forward for VividSense's mission and visibility.",
-    stat: "2nd",
+      "We did it! We emerged on top out of the 50 teams at SB Launch! 🎉🎉🎉 ",
+    stat: "1st",
   },
   {
     id: "003",

@@ -16,8 +16,8 @@ const updates = [
     date: "April 2026",
     label: "SB Launch Win",
     description:
-      "We did it! We emerged on top out of the 50 teams at SB Launch! 🎉🎉🎉 ",
-    stat: "1st",
+      "We did it! We emerged victorious out of the 50 teams at SB Launch with the Dexarm!",
+    stat: "1st🎉",
   },
   {
     id: "003",

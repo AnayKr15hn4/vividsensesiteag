@@ -24,7 +24,7 @@ const updates = [
     date: "February 2026",
     label: "Dexarm V3",
     description:
-      "The Dexarm version 3 is in progress. Featuring improved grip strength, lighter materials, and enhanced sensor feedback for more natural movement.",
+      "The Dexarm version 3 is now complete. Featuring improved grip strength, lighter materials, and enhanced sensor feedback for more natural movement.",
     stat: "V3",
   },
 ];

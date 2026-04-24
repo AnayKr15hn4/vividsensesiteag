@@ -20,9 +20,8 @@ const products = [
     subtitle: "Affordable Prosthetics",
     description:
       "An innovative, affordable prosthetic arm designed to restore essential hand functionality for everyday tasks.",
-    image:
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop", // high-quality wrench tech
-    link: "#",
+    image: "/products/dexarm.jpg", // local promo image
+    link: "/product/dexarm",
     specs: ["Modular Build", "Enhanced Grip", "Bio-feedback"],
   },
 ];

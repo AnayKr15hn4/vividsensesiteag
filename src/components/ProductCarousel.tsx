@@ -193,10 +193,13 @@ export const ProductCarousel: React.FC = () => {
                         <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                       </Link>
                     ) : (
-                      <button className="group relative px-10 py-4 bg-black text-white text-[11px] font-bold uppercase tracking-[0.2em] overflow-hidden transition-all duration-500 rounded-sm">
+                      <Link
+                        to="/product/dexarm"
+                        className="inline-block group relative px-10 py-4 bg-black text-white text-[11px] font-bold uppercase tracking-[0.2em] overflow-hidden transition-all duration-500 rounded-sm"
+                      >
                         <span className="relative z-10">View Product</span>
                         <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                      </button>
+                      </Link>
                     )}
                   </motion.div>
                 </div>

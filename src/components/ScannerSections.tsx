@@ -193,35 +193,54 @@ export const ScannerSections = () => {
             <span>Detection</span>
           </div>
 
-          <div className="max-w-4xl">
-            <motion.h2
-              {...fadeIn}
-              className="text-5xl md:text-7xl lg:text-[100px] font-display font-medium leading-[0.85] tracking-[-0.04em] uppercase mb-12"
-            >
-              Intelligent
-              <br />
-              Hazard
-              <br />
-              Detection
-            </motion.h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+            <div>
+              <motion.h2
+                {...fadeIn}
+                className="text-5xl md:text-7xl lg:text-[100px] font-display font-medium leading-[0.85] tracking-[-0.04em] uppercase mb-12"
+              >
+                Intelligent
+                <br />
+                Hazard
+                <br />
+                Detection
+              </motion.h2>
+
+              <motion.div
+                {...fadeIn}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.2,
+                  ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+                }}
+                className="space-y-6 max-w-2xl"
+              >
+                <p className="text-xl md:text-2xl text-black/50 font-light leading-relaxed">
+                  The ultrasonic sensor scans the area in front of the user,
+                  detecting obstacles before physical contact occurs.
+                </p>
+                <p className="text-lg text-black/40 font-light leading-relaxed">
+                  This allows the wearer to respond earlier than traditional
+                  tools that rely on touch.
+                </p>
+              </motion.div>
+            </div>
 
             <motion.div
               {...fadeIn}
               transition={{
-                duration: 0.8,
-                delay: 0.2,
-                ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+                duration: 1,
+                delay: 0.4,
+                ease: [0.22, 1, 0.36, 1],
               }}
-              className="space-y-6 max-w-2xl"
+              className="relative aspect-[4/5] bg-black rounded-sm overflow-hidden group shadow-2xl"
             >
-              <p className="text-xl md:text-2xl text-black/50 font-light leading-relaxed">
-                The ultrasonic sensor scans the area in front of the user,
-                detecting obstacles before physical contact occurs.
-              </p>
-              <p className="text-lg text-black/40 font-light leading-relaxed">
-                This allows the wearer to respond earlier than traditional tools
-                that rely on touch.
-              </p>
+              <img
+                src="/images/thess/tssing6.png"
+                alt="Hazard Detection in Action"
+                className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
             </motion.div>
           </div>
         </div>

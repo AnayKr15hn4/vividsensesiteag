@@ -87,20 +87,18 @@ export const ScannerScrollSequence: React.FC<ScannerScrollSequenceProps> = ({
 
   // Framer Motion overlay blocks based on the Scrollytelling Beats
 
-  // Permanently hide scroll indicator once user begins scrolling (0.5% depth)
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest > 0.005 && showIndicator) {
+  // 1. Scroll Indicator (Frames 0-30)
+  useMotionValueEvent(frameIndex, "change", (latest) => {
+    if (latest > 30 && showIndicator) {
       setShowIndicator(false);
+    } else if (latest <= 30 && !showIndicator) {
+      setShowIndicator(true);
     }
   });
 
-  // Hero text fade-in animation (~frame 28 to ~frame 36)
-  const beatBOpacity = useTransform(
-    scrollYProgress,
-    [0.25, 0.32, 1, 1],
-    [0, 1, 1, 1],
-  );
-  const beatBY = useTransform(scrollYProgress, [0.25, 0.32, 1], [40, 0, 0]);
+  // 2. Main Hero Text (Frames 90-End)
+  const heroOpacity = useTransform(frameIndex, [80, 100], [0, 1]);
+  const heroY = useTransform(frameIndex, [80, 100], [20, 0]);
 
   return (
     <section ref={containerRef} className="relative h-[500vh] bg-white w-full">
@@ -128,7 +126,7 @@ export const ScannerScrollSequence: React.FC<ScannerScrollSequenceProps> = ({
 
         {/* --- SCROLLYTELLING OVERLAYS --- */}
 
-        {/* Scroll Indicator (Initial State) */}
+        {/* Scroll Indicator (Frames 0-30) */}
         <AnimatePresence>
           {showIndicator && (
             <motion.div
@@ -155,9 +153,9 @@ export const ScannerScrollSequence: React.FC<ScannerScrollSequenceProps> = ({
           )}
         </AnimatePresence>
 
-        {/* Hero Text Overlay */}
+        {/* Hero Text Overlay (Frames 90-End) */}
         <motion.div
-          style={{ opacity: beatBOpacity, y: beatBY }}
+          style={{ opacity: heroOpacity, y: heroY }}
           className="absolute inset-x-8 md:inset-x-24 bottom-24 flex flex-col items-end text-right pointer-events-none z-10"
         >
           <h1 className="text-7xl md:text-[160px] font-display font-medium leading-[0.85] tracking-[-0.04em] text-white">

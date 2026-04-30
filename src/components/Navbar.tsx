@@ -17,7 +17,7 @@ export const Navbar: React.FC = () => {
     "/product/surrounding-scanner",
   );
 
-  const [shouldBeBlack, setShouldBeBlack] = useState(false);
+  const [isMixBlend, setIsMixBlend] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [time, setTime] = useState(new Date());
   const { scrollY } = useScroll();
@@ -28,36 +28,19 @@ export const Navbar: React.FC = () => {
   }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    // Determine theme based on page and scroll position
-    let black = false;
-
-    if (isWhitePage) {
-      if (isScannerPage) {
-        // Scanner page has a dark sequence for the first 500vh (approx)
-        // We switch to black only after the sequence ends
-        black = latest > window.innerHeight * 4.5;
-      } else {
-        // Other white pages (Products, Partner, Apply) are always black
-        black = true;
-      }
-    } else if (isHomePage) {
-      // Home page hero is 100vh
-      black = latest > window.innerHeight - 80;
-    } else if (isDarkBgPage) {
-      black = false;
-    }
-
-    // Always white if mobile menu is open (dark overlay)
-    if (isMobileMenuOpen) black = false;
-
-    // Near bottom (footer is usually dark)
+    let useDifference = true;
     const windowHeight = window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
-    if (latest + windowHeight >= documentHeight - 100) {
-      black = false;
+
+    if (isHomePage && latest < windowHeight - 80) {
+      useDifference = false;
     }
 
-    setShouldBeBlack(black);
+    if (latest + windowHeight >= documentHeight - 100) {
+      useDifference = false;
+    }
+
+    setIsMixBlend(useDifference);
   });
 
   const formatGMT = (date: Date) => {
@@ -72,13 +55,15 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-6 py-8 md:px-12",
-        scrollY.get() > 50 ? "py-4 md:py-6" : "",
-      )}
-    >
-      <div className="max-w-[1800px] mx-auto flex items-center justify-between">
+    <>
+      <nav
+        className={cn(
+          "fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-6 py-6 xl:px-12 xl:py-8 pointer-events-none",
+          isMixBlend ? "mix-blend-difference" : "",
+          scrollY.get() > 50 ? "py-4 xl:py-6" : "",
+        )}
+      >
+        <div className="max-w-[1800px] mx-auto flex items-center justify-between pointer-events-auto">
         {/* Logo */}
         <Link
           to="/"
@@ -90,14 +75,9 @@ export const Navbar: React.FC = () => {
                 ?.scrollIntoView({ behavior: "smooth" });
             }
           }}
-          className="group flex items-center gap-1"
+          className="group flex items-center gap-1 text-white"
         >
-          <span
-            className={cn(
-              "text-2xl font-display font-black tracking-tighter transition-colors duration-500",
-              shouldBeBlack ? "text-black" : "text-white",
-            )}
-          >
+          <span className="text-2xl font-display font-black tracking-tighter">
             VIVIDSENSE
           </span>
         </Link>
@@ -105,12 +85,7 @@ export const Navbar: React.FC = () => {
         {/* Right Section */}
         <div className="flex items-center gap-4 md:gap-8">
           {/* Time */}
-          <span
-            className={cn(
-              "hidden sm:block text-[11px] font-medium tracking-widest transition-colors duration-500",
-              shouldBeBlack ? "text-black" : "text-white",
-            )}
-          >
+          <span className="hidden sm:block text-[11px] font-medium tracking-widest text-white">
             {formatGMT(time)}
           </span>
 
@@ -118,12 +93,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={cn(
-                "p-2 rounded-full border transition-all duration-500",
-                shouldBeBlack
-                  ? "border-black text-black hover:bg-black/5"
-                  : "border-white text-white hover:bg-white/10",
-              )}
+              className="p-2 rounded-full border hover:bg-white/10 border-white text-white"
             >
               {isMobileMenuOpen ? (
                 <X className="w-4 h-4" />
@@ -134,6 +104,7 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
+    </nav>
 
       {/* Mobile/Full Menu Overlay */}
       <motion.div
@@ -142,10 +113,14 @@ export const Navbar: React.FC = () => {
           isMobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: "-100%" }
         }
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-0 bg-brand-dark z-[110] flex flex-col overflow-y-auto pointer-events-none data-[open=true]:pointer-events-auto"
-        data-open={isMobileMenuOpen}
+        className={cn(
+          "fixed inset-0 bg-brand-dark z-[110] overflow-y-auto",
+          isMobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
+        )}
+        data-lenis-prevent="true"
       >
-        <div className="flex-1 flex flex-col relative">
+        <div className="min-h-[100dvh] flex flex-col w-full">
+          <div className="flex-1 flex flex-col relative">
           {/* Decorative Gradient Background (Responsive: Soft glow on mobile, Sharp image on desktop) */}
           <div
             className="absolute z-0 pointer-events-none opacity-40 mix-blend-screen transition-all duration-700
@@ -160,8 +135,8 @@ export const Navbar: React.FC = () => {
             }}
           />
 
-          <div className="p-12 pb-0">
-            <div className="flex justify-between items-center mb-24 relative z-10">
+          <div className="p-6 xl:p-12 pb-0">
+            <div className="flex justify-between items-center mb-12 xl:mb-24 relative z-10">
               <a
                 href="/"
                 onClick={(e) => {
@@ -202,7 +177,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-5xl md:text-[80px] font-display font-medium text-white transition-all duration-700 tracking-tight hover:bg-gradient-to-r hover:from-[#00ced1] hover:to-[#0055ff] hover:bg-clip-text hover:text-transparent"
+                    className="text-4xl md:text-5xl lg:text-6xl xl:text-[80px] font-display font-medium text-white transition-all duration-700 tracking-tight hover:bg-gradient-to-r hover:from-[#00ced1] hover:to-[#0055ff] hover:bg-clip-text hover:text-transparent"
                   >
                     {item.label}
                   </Link>
@@ -212,7 +187,7 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        <div className="p-12 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-end gap-8 text-white/30 font-medium text-[10px] tracking-[0.2em] uppercase relative z-10">
+        <div className="p-6 pt-8 xl:p-12 xl:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-end gap-8 text-white/30 font-medium text-[10px] tracking-[0.2em] uppercase relative z-10">
           <div className="flex flex-wrap gap-x-10 gap-y-4">
             <a
               href="https://www.youtube.com/@Vividsense-labs"
@@ -249,7 +224,8 @@ export const Navbar: React.FC = () => {
           </div>
           <span className="shrink-0">© 2026 VividSense Lab.</span>
         </div>
+        </div>
       </motion.div>
-    </nav>
+    </>
   );
 };

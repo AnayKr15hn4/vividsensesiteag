@@ -171,14 +171,14 @@ export const DexarmScrollSequence: React.FC<DexarmScrollSequenceProps> = ({
         {/* 3. Main Hero Text (Frames 120-End) - ALIGNED ON ONE HORIZONTAL CENTER LINE + BLACK */}
         <motion.div
           style={{ opacity: heroOpacity, y: heroY }}
-          className="absolute inset-x-8 md:inset-x-24 bottom-[35%] flex flex-row justify-between items-center pointer-events-none z-10 text-white mix-blend-difference uppercase"
+          className="absolute inset-x-8 md:inset-x-24 bottom-[35%] flex flex-row justify-center md:justify-between items-center pointer-events-none z-10 text-white mix-blend-difference uppercase"
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col text-center md:text-left">
             <h1 className="text-5xl md:text-[110px] font-display font-bold leading-none tracking-[-0.04em]">
               Dexarm
             </h1>
           </div>
-          <div className="flex flex-col text-right">
+          <div className="hidden md:flex flex-col text-right">
             <p className="text-xl md:text-3xl font-display font-bold tracking-[0.2em] opacity-40 leading-none">
               Precision Accessible
             </p>

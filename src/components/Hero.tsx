@@ -74,7 +74,7 @@ export const Hero: React.FC = () => {
             className="mt-12 max-w-lg"
           >
             <p className="text-xl md:text-2xl font-light text-white/50 leading-tight">
-              Of AI-Driven Assistive Tech <br />& Powering Human Independence.
+              Of AI-Driven Assistive Tech <br />& Empowering Human Independence.
             </p>
           </motion.div>
         </div>

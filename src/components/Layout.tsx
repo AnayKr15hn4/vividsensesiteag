@@ -8,6 +8,11 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   useEffect(() => {
+    // Prevent browser from restoring scroll position on reload
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -18,6 +23,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       infinite: false,
     });
 
+    // Expose lenis globally so we can access it in ScrollToTop
+    (window as any).lenis = lenis;
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -27,6 +35,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
     return () => {
       lenis.destroy();
+      delete (window as any).lenis;
     };
   }, []);
 

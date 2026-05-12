@@ -44,7 +44,7 @@ const employees = [
   {
     name: "Vishwesh Hariprasad",
     role: "Software Engineer",
-    linkedin: "linkedin.com/in/vishwesh-hariprasad-50aa6b342",
+    linkedin: "https://www.linkedin.com/in/vishwesh-hariprasad-50aa6b342",
     mail: "vhariprasa@gmail.com",
   },
   {

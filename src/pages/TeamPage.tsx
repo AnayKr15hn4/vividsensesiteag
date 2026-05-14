@@ -38,7 +38,7 @@ const employees = [
   {
     name: "Wasim Vorvoi",
     role: "AI Engineer",
-    linkedin: "https://www.linkedin.com/feed/",
+    linkedin: "https://www.linkedin.com/in/wasim-vorvoi-28870b275/",
     mail: "wasimvorvoi@gmail.com",
   },
   {

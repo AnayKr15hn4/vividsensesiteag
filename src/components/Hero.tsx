@@ -82,14 +82,14 @@ export const Hero: React.FC = () => {
 
       {/* Bottom Right CTA */}
       <div className="absolute bottom-12 right-6 md:right-12 z-20">
-        <Link to="/apply">
+        <Link to="/donate">
           <motion.button
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
             className="group flex items-center gap-4 py-3 px-8 bg-white/5 border border-white/10 backdrop-blur-md rounded-full text-white font-medium hover:bg-white/10 transition-all duration-300"
           >
-            Join the Team
+            Donate Now
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </motion.button>
         </Link>

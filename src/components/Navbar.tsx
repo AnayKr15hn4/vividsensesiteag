@@ -163,6 +163,7 @@ export const Navbar: React.FC = () => {
             <div className="flex flex-col gap-4 md:gap-6 relative z-10">
               {[
                 { label: "Home", href: "/" },
+                { label: "Donate", href: "/donate" },
                 { label: "Products", href: "/products" },
                 { label: "The Team", href: "/team" },
                 { label: "Partner", href: "/partner" },

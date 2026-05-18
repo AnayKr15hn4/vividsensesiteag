@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { Home } from "./pages/Home";
+import { DonatePage } from "./pages/DonatePage";
 import { SurroundingScannerPage } from "./pages/SurroundingScannerPage";
 import { ProductsPage } from "./pages/ProductsPage";
 import { TeamPage } from "./pages/TeamPage";
@@ -19,6 +20,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/donate" element={<DonatePage />} />
           <Route
             path="/product/surrounding-scanner"
             element={<SurroundingScannerPage />}

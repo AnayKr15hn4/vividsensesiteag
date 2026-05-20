@@ -191,7 +191,7 @@ export const Navbar: React.FC = () => {
         <div className="p-6 pt-8 xl:p-12 xl:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-end gap-8 text-white/30 font-medium text-[10px] tracking-[0.2em] uppercase relative z-10">
           <div className="flex flex-wrap gap-x-10 gap-y-4">
             <a
-              href="https://www.youtube.com/@Vividsense-labs"
+              href="https://www.youtube.com/@VividsenseLabs"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"

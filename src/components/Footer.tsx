@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
                 <span className="text-white/20">Company</span>
                 <div className="flex flex-col gap-2">
                   <a
-                    href="https://www.youtube.com/@Vividsense-labs"
+                    href="https://www.youtube.com/@VividsenseLabs"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors tracking-widest whitespace-nowrap"

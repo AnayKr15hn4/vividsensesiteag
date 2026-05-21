@@ -70,6 +70,38 @@ export const Footer: React.FC = () => {
                   >
                     LinkedIn
                   </a>
+                  <a
+                    href="https://www.instagram.com/vividsenselabs/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors tracking-widest whitespace-nowrap"
+                  >
+                    Instagram
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@vividsenselabs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors tracking-widest whitespace-nowrap"
+                  >
+                    TikTok
+                  </a>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61589893214538"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors tracking-widest whitespace-nowrap"
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    href="https://x.com/VividsenseLabs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors tracking-widest whitespace-nowrap"
+                  >
+                    X
+                  </a>
                 </div>
               </div>
               <div className="flex flex-col gap-4">

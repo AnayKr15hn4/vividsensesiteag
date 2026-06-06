@@ -2,7 +2,7 @@ import React from "react";
 
 export const DonatePage: React.FC = () => {
   return (
-    <div className="relative w-full h-screen bg-brand-dark flex flex-col items-center overflow-hidden">
+    <div className="relative w-full min-h-screen bg-brand-dark flex flex-col items-center">
       {/* Noise Texture Background */}
       <div
         className="absolute inset-0 z-0 opacity-[0.015] pointer-events-none"
@@ -41,19 +41,20 @@ export const DonatePage: React.FC = () => {
         </svg>
       </div>
 
-      <div className="relative z-10 w-full flex-1 flex flex-col bg-white">
+      <div className="relative z-10 w-full flex-1 flex flex-col">
         <iframe
           src="https://hcb.hackclub.com/donations/start/vividsense"
           style={{ border: "none", backgroundColor: "transparent" }}
           name="donateFrame"
-          scrolling="yes"
+          scrolling="no"
           frameBorder="0"
           marginHeight={0}
           marginWidth={0}
-          className="w-full h-full flex-1"
+          className="w-full h-[1550px]"
           allowFullScreen
         ></iframe>
       </div>
     </div>
   );
 };
+

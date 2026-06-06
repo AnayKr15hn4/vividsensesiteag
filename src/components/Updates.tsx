@@ -5,11 +5,11 @@ import { ArrowRight, Target, Shield } from "lucide-react";
 const updates = [
   {
     id: "001",
-    date: "March 2026",
-    label: "Hiring New Positions",
+    date: "April 2025",
+    label: "Launch SB Maiden Poduim.",
     description:
-      "Vividsense is now hiring 3 new departments. We are hiring a Content Creation department, a Marketing department and an Outreach department. Visit our apply page to learn more!",
-    stat: "3",
+      "Vividsense podiumed placing second in Launch SB on our rookie year placing second out of 42 teams with the Surrounding Scanner!",
+    stat: "2nd",
   },
   {
     id: "002",
@@ -30,7 +30,7 @@ const updates = [
 ];
 
 const comingSoonItems = [
-  { text: "The search for sponsors has started", icon: Target },
+  { text: "The search for sponsors and donations has started", icon: Target },
   { text: "Advanced weather protection", icon: Shield },
 ];
 

@@ -58,7 +58,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="text-[11px] font-medium tracking-[0.3em] uppercase text-brand-teal/80 mb-6 block">
-              + Introducing
+              + STUDENT-LED INITIATIVE
             </span>
             <h1 className="text-7xl md:text-[160px] font-display font-medium leading-[0.85] tracking-[-0.04em] text-white">
               A New <span className="inline-block translate-x-4">→</span>
@@ -71,10 +71,11 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
-            className="mt-12 max-w-lg"
+            className="mt-12 max-w-2xl"
           >
             <p className="text-xl md:text-2xl font-light text-white/50 leading-tight">
-              Of Affordable Assistive Tech <br />& Empowering Human Independence.
+              A student-led organization creating accessibility tech <br />
+              & running engineering workshops to foster future engineers.
             </p>
           </motion.div>
         </div>

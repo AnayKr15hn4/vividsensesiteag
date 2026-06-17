@@ -81,6 +81,32 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
+      {/* Bottom Left Sponsor */}
+      <div className="absolute bottom-12 left-6 md:left-12 z-20">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="flex items-center gap-4"
+        >
+          <span className="text-[9px] font-medium tracking-[0.25em] uppercase text-white/40 hidden sm:inline-block">
+            Supported by
+          </span>
+          <a
+            href="https://jlcpcb.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center transition-all duration-300 hover:opacity-80"
+          >
+            <img
+              src="/jlcpcb.svg"
+              alt="JLCPCB Logo"
+              className="h-7 w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300"
+            />
+          </a>
+        </motion.div>
+      </div>
+
       {/* Bottom Right CTA */}
       <div className="absolute bottom-12 right-6 md:right-12 z-20">
         <Link to="/donate">

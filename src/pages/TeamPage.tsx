@@ -20,7 +20,7 @@ const team = [
   },
   {
     name: "Advay Pingle",
-    role: "Associate",
+    role: "Technical Director",
     image:
       "https://media.licdn.com/dms/image/v2/D4D03AQEP4tRjSr1Y3w/profile-displayphoto-shrink_400_400/B4DZtyWDOyHQAg-/0/1767149942070?e=1774483200&v=beta&t=ig8n2C2whAyFtnXOYcldYRNW4kBMFrA91FekWBC6iRY",
     linkedin: "https://www.linkedin.com/in/advay-pingle-0561833a2/",
@@ -31,7 +31,7 @@ const team = [
 const employees = [
   {
     name: "Samuel Asefa",
-    role: "Mentor",
+    role: "Head of Engineering",
     linkedin: "https://www.linkedin.com/in/samuelasefa/",
     mail: "samuelasefa20@gmail.com",
   },

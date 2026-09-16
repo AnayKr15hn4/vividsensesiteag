@@ -54,15 +54,13 @@ export const ScrollFillText: React.FC<ScrollFillTextProps> = ({
       if (containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
+        const elementCenter = rect.top + rect.height / 2;
+        const viewportCenter = windowHeight / 2;
 
-        // Animation starts when top of element is at 90% of viewport
-        // Animation ends when top of element is at 30% of viewport
-        const isMobile = window.innerWidth < 768;
-        const startPoint = windowHeight * 0.7;
-        const endPoint = windowHeight * (isMobile ? -0.2 : 0.1);
-
-        // Calculate progress: 0 when rect.top >= startPoint, 1 when rect.top <= endPoint
-        const rawProgress = (startPoint - rect.top) / (startPoint - endPoint);
+        // Fill starts when element center is 30% below viewport center
+        // Fill ends when element center is 30% above viewport center
+        const range = windowHeight * 0.3;
+        const rawProgress = (viewportCenter + range - elementCenter) / (range * 2);
         const clampedProgress = Math.min(Math.max(rawProgress, 0), 1);
 
         progress.set(clampedProgress);

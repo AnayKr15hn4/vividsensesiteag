@@ -1,42 +1,55 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { DarkGradientBg } from "./ui/elegant-dark-pattern";
 
 export const Footer: React.FC = () => {
   const footerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: footerRef,
-    offset: ["start end", "end end"],
-  });
+  const scrollProgress = useMotionValue(0);
 
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  // Manual scroll tracking to work with Lenis
+  useEffect(() => {
+    let rafId: number;
+    const update = () => {
+      if (footerRef.current) {
+        const rect = footerRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const footerHeight = rect.height;
+        // 0 when footer top is at bottom of viewport, 1 when footer bottom is at bottom of viewport
+        const raw = (windowHeight - rect.top) / (windowHeight + footerHeight);
+        scrollProgress.set(Math.min(Math.max(raw, 0), 1));
+      }
+      rafId = requestAnimationFrame(update);
+    };
+    rafId = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(rafId);
+  }, [scrollProgress]);
+
+  const y = useTransform(scrollProgress, [0, 1], [100, -100]);
+  const lineY = useTransform(scrollProgress, [0, 1], [200, 0]);
 
   return (
     <footer
       id="footer"
       ref={footerRef}
-      className="relative bg-[#111111] pb-12 pt-16 min-h-[110vh] overflow-hidden"
+      className="relative min-h-[110vh] overflow-hidden z-0"
     >
-      {/* Noise Texture Background */}
-      <div
-        className="absolute inset-0 z-0 opacity-[.015] pointer-events-none"
-        style={{
-          backgroundImage: 'url("/noise.svg")',
-          backgroundRepeat: "repeat",
-        }}
-      ></div>
+      <DarkGradientBg className="min-h-[110vh] pb-12 pt-[250px]">
 
-      <div className="container relative z-10 mx-auto px-6 md:px-12">
+      <motion.div
+        className="container relative z-10 mx-auto px-6 md:px-12"
+        style={{ y: lineY }}
+      >
         <div className="w-full h-px bg-white/10 mb-24 md:mb-32" />
-      </div>
+      </motion.div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
         <div className="flex flex-col gap-12">
           {/* Giant Logo */}
           <div className="flex justify-center">
             <motion.span
-              style={{ y }}
-              className="text-[12vw] font-display font-black leading-none tracking-tighter text-[#2a2a2a] block"
+              className="text-[12vw] font-display font-black leading-none tracking-tighter text-transparent block"
+              style={{ y, WebkitTextStroke: "2px rgba(255,255,255,0.7)" }}
             >
               VIVIDSENSE
             </motion.span>
@@ -179,6 +192,7 @@ export const Footer: React.FC = () => {
           <span>© 2026 VividSense Lab.</span>
         </div>
       </div>
+      </DarkGradientBg>
     </footer>
   );
 };

@@ -3,6 +3,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useLocation, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "../lib/utils";
+import { FlipLink } from "./ui/flip-links";
 
 export const Navbar: React.FC = () => {
   const location = useLocation();
@@ -64,47 +65,47 @@ export const Navbar: React.FC = () => {
         )}
       >
         <div className="max-w-[1800px] mx-auto flex items-center justify-between pointer-events-auto">
-        {/* Logo */}
-        <Link
-          to="/"
-          onClick={(e: React.MouseEvent) => {
-            if (location.pathname === "/") {
-              e.preventDefault();
-              document
-                .getElementById("hero")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }
-          }}
-          className="group flex items-center gap-1 text-white"
-        >
-          <span className="text-2xl font-display font-black tracking-tighter">
-            VIVIDSENSE
-          </span>
-        </Link>
+          {/* Logo */}
+          <Link
+            to="/"
+            onClick={(e: React.MouseEvent) => {
+              if (location.pathname === "/") {
+                e.preventDefault();
+                document
+                  .getElementById("hero")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="group flex items-center gap-1 text-white"
+          >
+            <span className="text-2xl font-display font-black tracking-tighter">
+              VIVIDSENSE
+            </span>
+          </Link>
 
-        {/* Right Section */}
-        <div className="flex items-center gap-4 md:gap-8">
-          {/* Time */}
-          <span className="hidden sm:block text-[11px] font-medium tracking-widest text-white">
-            {formatGMT(time)}
-          </span>
+          {/* Right Section */}
+          <div className="flex items-center gap-4 md:gap-8">
+            {/* Time */}
+            <span className="hidden sm:block text-[11px] font-medium tracking-widest text-white">
+              {formatGMT(time)}
+            </span>
 
-          {/* Icons */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-full border hover:bg-white/10 border-white text-white"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-4 h-4" />
-              ) : (
-                <Menu className="w-4 h-4" />
-              )}
-            </button>
+            {/* Icons */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 rounded-full border hover:bg-white/10 border-white text-white"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-4 h-4" />
+                ) : (
+                  <Menu className="w-4 h-4" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
       {/* Mobile/Full Menu Overlay */}
       <motion.div
@@ -121,142 +122,141 @@ export const Navbar: React.FC = () => {
       >
         <div className="min-h-[100dvh] flex flex-col w-full">
           <div className="flex-1 flex flex-col relative">
-          {/* Decorative Gradient Background (Responsive: Soft glow on mobile, Sharp image on desktop) */}
-          <div
-            className="absolute z-0 pointer-events-none opacity-40 mix-blend-screen transition-all duration-700
+            {/* Decorative Gradient Background (Responsive: Soft glow on mobile, Sharp image on desktop) */}
+            <div
+              className="absolute z-0 pointer-events-none opacity-40 mix-blend-screen transition-all duration-700
                        inset-0 blur-[100px] md:blur-none 
                        md:left-1/2 md:right-0 md:top-0 md:bottom-0"
-            style={{
-              background: `
+              style={{
+                background: `
                 radial-gradient(circle at 70% 40%, #00ced1 0%, transparent 70%),
                 radial-gradient(circle at 30% 60%, #0055ff 0%, transparent 70%),
                 linear-gradient(135deg, #00ced1 0%, #0055ff 100%)
               `,
-            }}
-          />
+              }}
+            />
 
-          <div className="p-6 xl:p-12 pb-0">
-            <div className="flex justify-between items-center mb-12 xl:mb-24 relative z-10">
-              <a
-                href="/"
-                onClick={(e) => {
-                  setIsMobileMenuOpen(false);
-                  if (location.pathname === "/") {
-                    e.preventDefault();
-                    document
-                      .getElementById("hero")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="text-2xl font-display font-black tracking-tighter text-white hover:text-white/80 transition-colors"
-              >
-                VIVIDSENSE
-              </a>
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="p-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            <div className="flex flex-col gap-4 md:gap-6 relative z-10">
-              {[
-                { label: "Home", href: "/" },
-                { label: "Donate", href: "/donate" },
-                { label: "Products", href: "/products" },
-                { label: "The Team", href: "/team" },
-                { label: "Partner", href: "/partner" },
-                { label: "Apply", href: "/apply" },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={isMobileMenuOpen ? { x: 0, opacity: 1 } : {}}
-                  transition={{ delay: 0.2 + i * 0.1 }}
+            <div className="p-6 xl:p-12 pb-0">
+              <div className="flex justify-between items-center mb-12 xl:mb-24 relative z-10">
+                <a
+                  href="/"
+                  onClick={(e) => {
+                    setIsMobileMenuOpen(false);
+                    if (location.pathname === "/") {
+                      e.preventDefault();
+                      document
+                        .getElementById("hero")
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="text-2xl font-display font-black tracking-tighter text-white hover:text-white/80 transition-colors"
                 >
-                  <Link
-                    to={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-4xl md:text-5xl lg:text-6xl xl:text-[80px] font-display font-medium text-white transition-all duration-700 tracking-tight hover:bg-gradient-to-r hover:from-[#00ced1] hover:to-[#0055ff] hover:bg-clip-text hover:text-transparent"
+                  VIVIDSENSE
+                </a>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              <div className="flex flex-col relative z-10">
+                {[
+                  { label: "Home", href: "/" },
+                  { label: "Donate", href: "/donate" },
+                  { label: "Products", href: "/products" },
+                  { label: "The Team", href: "/team" },
+                  { label: "Partner", href: "/partner" },
+                  { label: "Apply", href: "/apply" },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={isMobileMenuOpen ? { x: 0, opacity: 1 } : {}}
+                    transition={{ delay: 0.2 + i * 0.1 }}
                   >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
+                    <FlipLink
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </FlipLink>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="p-6 pt-8 xl:p-12 xl:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-end gap-8 text-white/30 font-medium text-[10px] tracking-[0.2em] uppercase relative z-10">
-          <div className="flex flex-wrap gap-x-10 gap-y-4">
-            <a
-              href="https://www.youtube.com/@VividsenseLabs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              YouTube
-            </a>
-            <a
-              href="https://www.linkedin.com/company/vividsense/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://www.instagram.com/vividsenselabs/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              Instagram
-            </a>
-            <a
-              href="https://www.tiktok.com/@vividsenselabs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              TikTok
-            </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=61589893214538"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              Facebook
-            </a>
-            <a
-              href="https://x.com/VividsenseLabs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              X
-            </a>
-            <a
-              href="https://www.linkedin.com/in/anay-krishna-b39183359/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              Anay Krishna
-            </a>
-            <a
-              href="https://www.linkedin.com/in/eshaan-revankar/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              Eshaan Revankar
-            </a>
+          <div className="p-6 pt-8 xl:p-12 xl:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-end gap-8 text-white/30 font-medium text-[10px] tracking-[0.2em] uppercase relative z-10">
+            <div className="flex flex-wrap gap-x-10 gap-y-4">
+              <a
+                href="https://www.youtube.com/@VividsenseLabs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                YouTube
+              </a>
+              <a
+                href="https://www.linkedin.com/company/vividsense/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://www.instagram.com/vividsenselabs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.tiktok.com/@vividsenselabs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                TikTok
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61589893214538"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://x.com/VividsenseLabs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                X
+              </a>
+              <a
+                href="https://www.linkedin.com/in/anay-krishna-b39183359/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                Anay Krishna
+              </a>
+              <a
+                href="https://www.linkedin.com/in/eshaan-revankar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                Eshaan Revankar
+              </a>
+            </div>
+            <span className="shrink-0">© 2026 VividSense Lab.</span>
           </div>
-          <span className="shrink-0">© 2026 VividSense Lab.</span>
-        </div>
         </div>
       </motion.div>
     </>

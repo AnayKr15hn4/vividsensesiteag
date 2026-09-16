@@ -17,20 +17,22 @@ function App() {
     <Router>
       <ScrollToTop />
       <Layout>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/donate" element={<DonatePage />} />
-          <Route
-            path="/product/surrounding-scanner"
-            element={<SurroundingScannerPage />}
-          />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/team" element={<TeamPage />} />
-          <Route path="/partner" element={<PartnerPage />} />
-          <Route path="/product/dexarm" element={<DexarmPage />} />
-          <Route path="/apply" element={<ApplyPage />} />
-        </Routes>
+        <div className="relative z-10 bg-black rounded-b-[40px] overflow-hidden" style={{ marginBottom: "-200px" }}>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/donate" element={<DonatePage />} />
+            <Route
+              path="/product/surrounding-scanner"
+              element={<SurroundingScannerPage />}
+            />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/team" element={<TeamPage />} />
+            <Route path="/partner" element={<PartnerPage />} />
+            <Route path="/product/dexarm" element={<DexarmPage />} />
+            <Route path="/apply" element={<ApplyPage />} />
+          </Routes>
+        </div>
         <Footer />
       </Layout>
     </Router>

@@ -1,76 +1,10 @@
 import React, { useRef } from "react";
-import { motion, useInView, Variants } from "framer-motion";
+import { ScrollFillText } from "./ui/scroll-fill-text";
 
 export const MissionStatement: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-10%" });
 
-  const words: (string | { text: string; italic: boolean })[] = [
-    "As",
-    "a",
-    { text: "student-led", italic: true },
-    "organization,",
-    "we",
-    "are",
-    "dedicated",
-    "to",
-    "empowering",
-    "independence",
-    { text: "by", italic: true },
-    "creating",
-    "affordable",
-    "accessibility",
-    "technology",
-    "and",
-    "running",
-    { text: "hands-on", italic: true },
-    "engineering",
-    "workshops.",
-    "Our",
-    "mission",
-    "is",
-    "to",
-    "foster",
-    "future",
-    "engineers",
-    "while",
-    "building",
-    "smart,",
-    "accessible",
-    "designs",
-    "that",
-    "help",
-    "people",
-    "move",
-    "confidently",
-    "and",
-    "stay",
-    "independent.",
-  ];
-
-  const containerVariants: Variants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.04,
-      },
-    },
-  };
-
-  const wordVariants: Variants = {
-    hidden: {
-      y: "120%",
-      transition: { duration: 0.4 },
-    },
-    visible: {
-      y: "0%",
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
+  const textString = "As a student-led organization, we are dedicated to empowering independence by creating affordable accessibility technology and running hands-on engineering workshops. Our mission is to foster future engineers while building smart, accessible designs that help people move confidently and stay independent.";
 
   return (
     <section
@@ -78,6 +12,17 @@ export const MissionStatement: React.FC = () => {
       className="bg-white text-black py-24 md:py-32 relative overflow-hidden"
       ref={sectionRef}
     >
+      <style>
+        {`
+          .mission-text > span:nth-child(5),
+          .mission-text > span:nth-child(21),
+          .mission-text > span:nth-child(35) {
+            font-family: serif;
+            font-style: italic;
+            font-weight: 300;
+          }
+        `}
+      </style>
       <div className="container mx-auto px-6 md:px-12">
         {/* Top Border & Labels */}
         <div className="flex justify-between items-center text-[11px] font-bold tracking-widest uppercase mb-16 md:mb-24">
@@ -89,34 +34,12 @@ export const MissionStatement: React.FC = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-24">
           {/* Left Column - Statement */}
           <div className="lg:w-3/4">
-            <motion.h2
-              ref={containerRef}
-              variants={containerVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="text-4xl md:text-5xl lg:text-[60px] font-display leading-[1.1] tracking-tight text-black flex flex-wrap gap-x-3 gap-y-1"
+            <ScrollFillText
+              as="h2"
+              className="mission-text text-4xl md:text-5xl lg:text-[60px] font-display leading-[1.1] tracking-tight text-black"
             >
-              {words.map((word, i) => {
-                const isObject = typeof word === "object";
-                const text = isObject ? word.text : word;
-                const isItalic = isObject ? word.italic : false;
-
-                return (
-                  <div
-                    key={i}
-                    className="overflow-hidden inline-block"
-                    style={{ paddingBottom: "0.1em" }}
-                  >
-                    <motion.span
-                      variants={wordVariants}
-                      className={`inline-block ${isItalic ? "font-serif italic font-light" : ""}`}
-                    >
-                      {text}
-                    </motion.span>
-                  </div>
-                );
-              })}
-            </motion.h2>
+              {textString}
+            </ScrollFillText>
           </div>
 
           {/* Right Column - Empty/Decor */}

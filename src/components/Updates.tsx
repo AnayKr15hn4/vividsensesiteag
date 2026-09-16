@@ -63,7 +63,7 @@ export const Updates: React.FC = () => {
   return (
     <section
       id="stories"
-      className="bg-white py-24 md:py-32 relative z-10 overflow-hidden"
+      className="bg-white py-24 md:py-32 relative z-10 overflow-hidden rounded-b-[40px]"
       ref={sectionRef}
     >
       <div className="container mx-auto px-6 md:px-12">

@@ -17,7 +17,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <Layout>
-        <div className="relative z-10 bg-black rounded-b-[40px] overflow-hidden" style={{ marginBottom: "-200px" }}>
+        <div className="relative z-10 bg-black rounded-b-[40px]" style={{ marginBottom: "-200px" }}>
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

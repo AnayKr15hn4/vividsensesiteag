@@ -14,16 +14,12 @@ export const MissionStatement: React.FC = () => {
     >
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,400&display=swap');
-          
-          /* Target specific words (1-indexed based on the array after split) */
-          /* 3: student-led, 19: engineering, 40: independent. */
-          .mission-text > span > span:nth-child(3),
-          .mission-text > span > span:nth-child(19),
-          .mission-text > span > span:nth-child(40) {
-            font-family: 'Lora', serif;
+          .mission-text > span:nth-child(5),
+          .mission-text > span:nth-child(21),
+          .mission-text > span:nth-child(35) {
+            font-family: serif;
             font-style: italic;
-            font-weight: 400;
+            font-weight: 300;
           }
         `}
       </style>

@@ -7,6 +7,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { usePreloadImages } from "../hooks/usePreloadImages";
+import { LoadingLogo } from "./ui/loading-logo";
 
 interface DexarmScrollSequenceProps {
   frameCount: number;
@@ -107,15 +108,10 @@ export const DexarmScrollSequence: React.FC<DexarmScrollSequenceProps> = ({
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         {!isComplete && (
           <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-white">
-            <p className="text-[#ff4500] font-display text-xl tracking-widest uppercase mb-4">
-              Calibrating Dexarm...
-            </p>
-            <div className="w-64 h-1 bg-black/10 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-[#ff4500] transition-all duration-300 ease-out"
-                style={{ width: `${(loadedCount / frameCount) * 100}%` }}
-              />
-            </div>
+            <LoadingLogo 
+              progress={(loadedCount / frameCount) * 100} 
+              color="#ff4500" 
+            />
           </div>
         )}
 

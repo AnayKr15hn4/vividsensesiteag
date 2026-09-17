@@ -7,7 +7,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { usePreloadImages } from "../hooks/usePreloadImages";
-import { LoadingLogo } from "./ui/loading-logo";
+import { LoadingScreen } from "./ui/loading-screen";
 
 interface ScannerScrollSequenceProps {
   frameCount: number;
@@ -105,14 +105,11 @@ export const ScannerScrollSequence: React.FC<ScannerScrollSequenceProps> = ({
     <section ref={containerRef} className="relative h-[500vh] bg-white w-full">
       {/* Sticky Canvas Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-        {!isComplete && (
-          <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-white">
-            <LoadingLogo 
-              progress={(loadedCount / frameCount) * 100} 
-              color="#00ced1" 
-            />
-          </div>
-        )}
+        <LoadingScreen 
+          isComplete={isComplete} 
+          progress={(loadedCount / frameCount) * 100} 
+          color="#00ced1" 
+        />
 
         {/* The Image Sequence Canvas */}
         <canvas

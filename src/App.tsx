@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
@@ -12,12 +12,18 @@ import { PartnerPage } from "./pages/PartnerPage";
 import { ApplyPage } from "./pages/ApplyPage";
 import { DexarmPage } from "./pages/DexarmPage";
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const isDonate = location.pathname === "/donate";
+
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <Layout>
-        <div className="relative z-10 bg-black rounded-b-[40px]" style={{ marginBottom: "-200px" }}>
+        <div 
+          className={`relative z-10 bg-black ${isDonate ? "" : "rounded-b-[40px]"}`} 
+          style={isDonate ? {} : { marginBottom: "-200px" }}
+        >
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -33,8 +39,16 @@ function App() {
             <Route path="/apply" element={<ApplyPage />} />
           </Routes>
         </div>
-        <Footer />
+        {!isDonate && <Footer />}
       </Layout>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

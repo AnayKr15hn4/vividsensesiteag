@@ -7,7 +7,7 @@ export const DonatePage: React.FC = () => {
     if ((window as any).lenis) {
       (window as any).lenis.stop();
     }
-    
+
     return () => {
       document.body.style.overflow = "";
       if ((window as any).lenis) {
@@ -17,7 +17,8 @@ export const DonatePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 w-full h-[100dvh] bg-black flex flex-col items-center overflow-hidden">
+    <div className="fixed inset-0 z-50 w-full h-[100dvh] bg-[#17171d] flex flex-col items-center overflow-hidden">
+
       <div className="relative z-10 w-full flex-1 overflow-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
         <iframe
           src="https://hcb.hackclub.com/donations/start/vividsense"

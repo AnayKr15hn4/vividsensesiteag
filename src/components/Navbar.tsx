@@ -65,23 +65,31 @@ export const Navbar: React.FC = () => {
         )}
       >
         <div className="max-w-[1800px] mx-auto flex items-center justify-between pointer-events-auto">
-          {/* Logo */}
-          <Link
-            to="/"
-            onClick={(e: React.MouseEvent) => {
-              if (location.pathname === "/") {
-                e.preventDefault();
-                document
-                  .getElementById("hero")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-            className="group flex items-center gap-1 text-white"
-          >
-            <span className="text-2xl font-display font-black tracking-tighter">
-              VIVIDSENSE
-            </span>
-          </Link>
+          <div className="flex items-center gap-6">
+            {/* Logo */}
+            <Link
+              to="/"
+              onClick={(e: React.MouseEvent) => {
+                if (location.pathname === "/") {
+                  e.preventDefault();
+                  document
+                    .getElementById("hero")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="group flex items-center gap-1 text-white"
+            >
+              <span className="text-2xl font-display font-black tracking-tighter">
+                VIVIDSENSE
+              </span>
+            </Link>
+
+            {location.pathname === "/donate" && (
+              <div className="flex items-center ml-4 text-white">
+                <span className="text-2xl font-bold tracking-[0.2em] opacity-80">+++</span>
+              </div>
+            )}
+          </div>
 
           {/* Right Section */}
           <div className="flex items-center gap-4 md:gap-8">

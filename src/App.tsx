@@ -11,18 +11,23 @@ import { TeamPage } from "./pages/TeamPage";
 import { PartnerPage } from "./pages/PartnerPage";
 import { ApplyPage } from "./pages/ApplyPage";
 import { DexarmPage } from "./pages/DexarmPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 function AppContent() {
   const location = useLocation();
   const isDonate = location.pathname === "/donate";
+  const knownRoutes = ["/", "/donate", "/product/surrounding-scanner", "/products", "/team", "/partner", "/product/dexarm", "/apply"];
+  const is404 = !knownRoutes.includes(location.pathname);
+  const hideFooter = isDonate || is404;
+  const hideRoundedBottom = isDonate || is404;
 
   return (
     <>
       <ScrollToTop />
       <Layout>
         <div 
-          className={`relative z-10 bg-black ${isDonate ? "" : "rounded-b-[40px]"}`} 
-          style={isDonate ? {} : { marginBottom: "-200px" }}
+          className={`relative z-10 bg-black ${hideRoundedBottom ? "" : "rounded-b-[40px]"}`} 
+          style={hideRoundedBottom ? {} : { marginBottom: "-200px" }}
         >
           <Navbar />
           <Routes>
@@ -37,9 +42,10 @@ function AppContent() {
             <Route path="/partner" element={<PartnerPage />} />
             <Route path="/product/dexarm" element={<DexarmPage />} />
             <Route path="/apply" element={<ApplyPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
-        {!isDonate && <Footer />}
+        {!hideFooter && <Footer />}
       </Layout>
     </>
   );

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { ScannerVideoSection } from "./ScannerVideoSection";
 
 const fadeIn = {
   initial: { opacity: 0, y: 40 },
@@ -14,6 +15,7 @@ const fadeIn = {
 export const ScannerSections = () => {
   return (
     <div className="bg-white text-black">
+
       {/* ─── Section 2: Awareness in Real Time ─── */}
       <section className="py-32 md:py-48">
         <div className="container mx-auto px-6 md:px-12">
@@ -118,6 +120,9 @@ export const ScannerSections = () => {
           </div>
         </div>
       </section>
+
+      {/* ─── Section 3.5: Video Overview ─── */}
+      <ScannerVideoSection />
 
       {/* ─── Section 4: Built Into Everyday Eyewear ─── */}
       <section className="py-32 md:py-48">

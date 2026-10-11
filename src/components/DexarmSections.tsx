@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Skiper30 } from "./Skiper30";
 
 const fadeIn = {
   initial: { opacity: 0, y: 40 },
@@ -120,6 +121,9 @@ export const DexarmSections = () => {
           </div>
         </div>
       </section>
+
+      {/* ─── Section 3.5: Image Gallery ─── */}
+      <Skiper30 />
 
       {/* ─── Section 4: Specifications ─── */}
       <section className="py-32 md:py-48">

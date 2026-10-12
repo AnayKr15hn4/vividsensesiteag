@@ -8,7 +8,7 @@ const allImages = [
   "/images/dex/Black_prosthetic_hand_on_surface_2K_20261009092343.jpg",
   "/images/dex/Prosthetic_hand_mechanical_joints_2K_20261009092407.jpg",
   "/images/dex/Prosthetic_hand_reaching_upward_2K_20261009092359.jpg",
-  "/images/dex/Black_prosthetic_hand_displayed_._2K_20260918120706.jpeg",
+  "/images/dex/Black_prosthetic_hand_displayed_2K_20260918120706.jpeg",
   "/images/dex/Prostatic_hand_in_black_void_2K_20261009092629.jpg",
   "/images/dex/Prostatic_hand_side_profile_view_2K_20260918120701.jpeg",
   "/images/dex/Prosthetic_hand_close-up_20261010132559.jpg",
